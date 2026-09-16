@@ -9,8 +9,10 @@ import {
   Users,
   Zap,
   MessageCircle,
+  ArrowRight,
 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
+import AnimateIn from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -22,49 +24,58 @@ const services = [
   {
     icon: Bone,
     title: "Orthopedic Physiotherapy",
-    desc: "Dealing with joint pain, fractures, arthritis, or a stiff shoulder? Orthopedic physiotherapy targets the bones, joints, muscles, and ligaments that keep you moving. We use a combination of manual therapy, therapeutic exercises, and advanced modalities to reduce pain, restore mobility, and strengthen the areas that need it most.",
+    color: "bg-blue-50 text-blue-600 border-blue-100",
+    desc: "Joint pain, fractures, arthritis, frozen shoulder, back pain. If something in your musculoskeletal system is not working right, this is where we start. We combine manual therapy with targeted exercises and modalities to get you moving without pain again.",
     conditions: ["Joint Pain", "Fractures", "Arthritis", "Frozen Shoulder", "Back Pain"],
   },
   {
     icon: Brain,
     title: "Neurological Rehabilitation",
-    desc: "Conditions like stroke, Parkinson's disease, spinal cord injuries, and nerve damage require specialized care. Our neurological rehabilitation program focuses on retraining the nervous system, improving coordination and balance, and helping patients regain independence in their daily activities. We combine clinical expertise with robotic rehab systems to accelerate neurological recovery.",
+    color: "bg-purple-50 text-purple-600 border-purple-100",
+    desc: "Stroke recovery, Parkinson's, spinal cord injuries, nerve damage. These conditions need a therapist who understands how to retrain the nervous system. We combine clinical expertise with robotic rehab systems to help patients regain coordination, balance, and independence faster.",
     conditions: ["Stroke Recovery", "Parkinson's", "Spinal Cord Injury", "Nerve Damage"],
   },
   {
     icon: Bot,
     title: "Robotic Rehab Therapy",
-    desc: "Our robotic rehabilitation systems provide precise, repetitive, and measurable movement therapy that helps retrain muscles and nerves after injury or surgery. The technology adapts to your progress in real time, making each session as effective as possible. It is especially powerful for stroke recovery, spinal injuries, and complex orthopedic cases.",
+    color: "bg-teal-light text-teal-dark border-teal/20",
+    desc: "This is what makes Smart Physio different. Our robotic systems provide precise, repeatable movement therapy that retrains muscles and nerves after injury or surgery. The technology adapts to your progress in real time. Especially effective for stroke recovery, spinal injuries, and complex orthopedic cases.",
     conditions: ["Stroke Recovery", "Spinal Injuries", "Complex Orthopedic Cases"],
+    featured: true,
   },
   {
     icon: Dumbbell,
     title: "Sports Injury Rehabilitation",
-    desc: "Athletes and active individuals need more than just pain relief. They need to get back to full performance. Our sports rehab program covers everything from ACL tears and rotator cuff injuries to muscle strains and stress fractures. We focus on complete recovery so you can return to your sport with confidence.",
+    color: "bg-orange-50 text-orange-600 border-orange-100",
+    desc: "ACL tears, rotator cuff injuries, muscle strains, stress fractures. Athletes do not just need pain relief. They need to get back to full performance. We focus on complete recovery so you return to your sport stronger, not just pain-free.",
     conditions: ["ACL Tears", "Rotator Cuff", "Muscle Strains", "Stress Fractures"],
   },
   {
     icon: HeartPulse,
     title: "Post-Surgery Rehabilitation",
-    desc: "Surgery fixes the structural problem. What happens in the weeks after determines how much function you actually get back. Our post-surgery rehab programs are designed for patients recovering from joint replacements, spinal surgeries, ligament repairs, and other orthopedic procedures. We work closely with your surgeon's guidelines while using our advanced equipment to speed up your recovery timeline.",
+    color: "bg-red-50 text-red-600 border-red-100",
+    desc: "Your surgeon fixed the structural problem. What happens in the weeks after determines how much function you actually get back. We work with your surgeon's guidelines and use our robotic equipment to get you moving sooner and recovering more completely.",
     conditions: ["Joint Replacement", "Spinal Surgery", "Ligament Repair"],
   },
   {
     icon: Heart,
     title: "Women's Health Physiotherapy",
-    desc: "From prenatal and postnatal care to pelvic floor rehabilitation and osteoporosis management, we provide physiotherapy services tailored to women's health needs. These are conditions that many women deal with silently, but with the right treatment, significant improvement is absolutely possible.",
+    color: "bg-pink-50 text-pink-600 border-pink-100",
+    desc: "Prenatal and postnatal care, pelvic floor rehab, osteoporosis management. These are conditions many women live with silently, assuming nothing can be done. With the right physiotherapy, significant improvement is absolutely possible.",
     conditions: ["Prenatal Care", "Postnatal Recovery", "Pelvic Floor", "Osteoporosis"],
   },
   {
     icon: Users,
     title: "Geriatric Physiotherapy",
-    desc: "Aging brings its own set of challenges, including reduced mobility, balance issues, joint degeneration, and increased fall risk. Our geriatric physiotherapy program helps older adults maintain their independence, manage age-related conditions, and improve their overall quality of life through safe, guided exercise and therapy.",
+    color: "bg-amber-50 text-amber-600 border-amber-100",
+    desc: "Reduced mobility, balance problems, joint degeneration, fall risk. Getting older does not mean you have to accept losing your independence. Our geriatric program helps older adults stay active, stay safe, and maintain their quality of life.",
     conditions: ["Mobility Issues", "Balance Problems", "Joint Degeneration", "Fall Prevention"],
   },
   {
     icon: Zap,
     title: "Pain Management",
-    desc: "Chronic pain does not have to run your life. Whether it is lower back pain, neck pain, sciatica, or fibromyalgia, our pain management approach combines manual therapy, electrotherapy, dry needling, and targeted exercises to address the root cause of your pain.",
+    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    desc: "Lower back pain, neck pain, sciatica, fibromyalgia. If chronic pain is running your life, we can help. Our approach combines manual therapy, electrotherapy, dry needling, and targeted exercises to treat the root cause, not just mask the symptoms.",
     conditions: ["Lower Back Pain", "Neck Pain", "Sciatica", "Fibromyalgia"],
   },
 ];
@@ -72,71 +83,96 @@ const services = [
 export default function ServicesPage() {
   return (
     <div>
-      <section className="bg-bg-off">
+      <section className="bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy tracking-tight">
-            Our services
-          </h1>
-          <p className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed">
-            At Smart Physio, we treat a wide range of conditions using a mix
-            of hands-on therapy, advanced equipment, and robotic
-            rehabilitation. Here is an overview of what we offer. If you are
-            not sure which service is right for you, just reach out. We will
-            point you in the right direction.
-          </p>
+          <AnimateIn>
+            <p className="text-teal font-medium text-sm uppercase tracking-wide">
+              Services
+            </p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-white tracking-tight">
+              We probably treat what you have
+            </h1>
+            <p className="mt-5 max-w-2xl mx-auto text-white/70 leading-relaxed">
+              From sports injuries to stroke recovery, from chronic back pain to
+              post-surgery rehab. If it involves pain, stiffness, or lost
+              mobility, this is what we do. Not sure which service fits? Just
+              message us and describe what is going on.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="bg-white border border-border rounded-[var(--radius-lg)] p-6 md:p-8"
-            >
-              <div className="w-12 h-12 rounded-full bg-teal-light flex items-center justify-center">
-                <service.icon size={22} className="text-teal-dark" />
+        <div className="space-y-6">
+          {services.map((service, i) => (
+            <AnimateIn key={service.title} delay={i * 0.05} from="up">
+              <div
+                className={`bg-white border rounded-[var(--radius-lg)] p-6 md:p-8 hover:shadow-md transition-all ${
+                  service.featured
+                    ? "border-teal/30 ring-1 ring-teal/10"
+                    : "border-border"
+                }`}
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-5">
+                  <div className={`w-14 h-14 shrink-0 rounded-2xl border ${service.color} flex items-center justify-center`}>
+                    <service.icon size={26} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-xl font-semibold text-navy">
+                        {service.title}
+                      </h3>
+                      {service.featured && (
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-teal-dark bg-teal-light px-2.5 py-0.5 rounded-full">
+                          Our specialty
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-3 text-text-secondary leading-relaxed">
+                      {service.desc}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {service.conditions.map((condition) => (
+                        <span
+                          key={condition}
+                          className="text-xs font-medium text-text-muted bg-bg-muted px-3 py-1 rounded-full"
+                        >
+                          {condition}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="mt-4 text-xl font-semibold text-navy">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-text-secondary leading-relaxed">
-                {service.desc}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {service.conditions.map((condition) => (
-                  <span
-                    key={condition}
-                    className="text-xs font-medium text-teal-dark bg-teal-light px-3 py-1 rounded-full"
-                  >
-                    {condition}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </section>
 
-      <section className="bg-navy">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Not sure which service you need?
-          </h2>
-          <p className="mt-5 max-w-2xl mx-auto text-white/80 leading-relaxed">
-            Tell us what you are dealing with and we will help you figure out
-            the right treatment path. No pressure, no guesswork.
-          </p>
-          <div className="mt-8">
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white font-medium rounded-[var(--radius)] hover:bg-teal-dark transition-colors"
-            >
-              <MessageCircle size={18} />
-              Message on WhatsApp
-            </a>
+      <section className="bg-gradient-to-br from-teal to-teal-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+          <div className="max-w-2xl mx-auto text-center">
+            <AnimateIn>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Not sure what you need?
+              </h2>
+              <p className="mt-5 text-white/80 leading-relaxed">
+                Describe what you are dealing with and Dr. Nileema will tell you
+                exactly what is going on and what the treatment options are. No
+                commitment, no pressure.
+              </p>
+              <div className="mt-8">
+                <a
+                  href={getWhatsAppUrl("Hi, I need help figuring out the right treatment. Here is what I am dealing with: ")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-teal-dark font-semibold rounded-[var(--radius)] hover:bg-bg-off transition-all hover:scale-[1.02] shadow-lg"
+                >
+                  <MessageCircle size={18} />
+                  Describe Your Condition
+                </a>
+              </div>
+            </AnimateIn>
           </div>
         </div>
       </section>

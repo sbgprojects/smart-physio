@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Target, BarChart3, Clock, TrendingUp, MessageCircle } from "lucide-react";
+import { Target, BarChart3, Clock, TrendingUp, MessageCircle, CheckCircle2 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
+import AnimateIn from "@/components/AnimateIn";
+import Counter from "@/components/Counter";
 
 export const metadata: Metadata = {
   title: "Technology",
@@ -11,168 +13,226 @@ export const metadata: Metadata = {
 const benefits = [
   {
     icon: Target,
-    title: "Precision and Consistency",
-    text: "Robotic systems deliver the exact same therapeutic movement, every single repetition. This level of consistency is critical for neurological recovery and muscle retraining, where hundreds of precise repetitions drive real change in the body.",
+    title: "Precision you cannot get by hand",
+    text: "The robotic system delivers the exact same therapeutic movement, every repetition, every session. For neurological recovery and muscle retraining, where hundreds of precise repetitions drive real change, this level of consistency matters enormously.",
   },
   {
     icon: BarChart3,
-    title: "Real-Time Progress Tracking",
-    text: "Every session generates data. We can see exactly how your range of motion, strength, and coordination are improving over time. This takes the guesswork out of recovery and lets us adjust your treatment plan based on hard numbers.",
+    title: "Your progress, in numbers",
+    text: "Every session generates data. Range of motion, strength, coordination, all of it tracked over time. We adjust your treatment based on what the numbers say, not guesswork. And you can see the improvement on screen.",
   },
   {
     icon: Clock,
-    title: "Faster Recovery Timelines",
-    text: "Studies consistently show that robotic-assisted rehabilitation can reduce recovery time compared to traditional methods alone. The combination of precision, intensity, and data-driven adjustments means your body gets exactly what it needs to heal, session after session.",
+    title: "Faster recovery, full stop",
+    text: "Research consistently shows that robotic-assisted rehab reduces recovery time compared to manual therapy alone. The combination of precision, intensity, and data-driven adjustments gives your body exactly what it needs to heal.",
   },
   {
     icon: TrendingUp,
-    title: "Motivation Through Feedback",
-    text: "Recovery takes time, and it is easy to feel stuck. Our robotic systems show you your improvement on screen during your session. When you can see the numbers improving week over week, it is much easier to stay committed to the process.",
+    title: "You can see it working",
+    text: "Recovery takes months. It is easy to feel stuck. Our systems show your improvement during the session, on screen. When you see the numbers moving week over week, it is much easier to stay committed.",
   },
 ];
 
 export default function TechnologyPage() {
   return (
     <div>
-      <section className="bg-bg-off">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy tracking-tight">
-            Our technology
-          </h1>
-          <p className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed">
-            Physiotherapy has always been a hands-on practice, and that will
-            never change. But the tools available to physiotherapists have
-            evolved dramatically. At Smart Physio, we have invested in
-            advanced robotic rehabilitation systems and modern therapy
-            equipment because the evidence is clear: when you combine skilled
-            clinical judgment with precise technology, patients recover
-            faster and more completely.
-          </p>
+      <section className="relative overflow-hidden bg-navy">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&q=80"
+            alt="Robotic rehabilitation"
+            className="w-full h-full object-cover opacity-15"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-28 text-center">
+          <AnimateIn>
+            <p className="text-teal font-medium text-sm uppercase tracking-wide">
+              Our technology
+            </p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-white tracking-tight max-w-3xl mx-auto">
+              The equipment most Pune clinics do not have
+            </h1>
+            <p className="mt-5 max-w-2xl mx-auto text-white/70 leading-relaxed">
+              Skilled hands plus precise technology. That is the formula. We
+              invested in robotic rehabilitation because the results are not
+              subtle: patients recover faster, more completely, and with proof
+              they can see.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy">
-            What is robotic rehabilitation?
-          </h2>
-          <div className="mt-5 space-y-5">
-            <p className="text-text-secondary leading-relaxed">
-              Robotic rehabilitation uses computer-controlled devices to
-              guide patients through therapeutic movements with precision
-              that human hands alone cannot achieve. These systems provide
-              consistent, repetitive motion therapy that is essential for
-              retraining muscles and neural pathways after injury, surgery,
-              or neurological events like stroke.
-            </p>
-            <p className="text-text-secondary leading-relaxed">
-              The equipment tracks your progress in real time, adjusting
-              resistance, range of motion, and speed based on how your body
-              responds during each session. This means your therapy is
-              always matched to exactly where you are in your recovery, not
-              where the average patient would be.
-            </p>
+      {/* Stats */}
+      <section className="bg-white border-b border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+          <div className="grid grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-3xl md:text-4xl font-bold text-navy">
+                <Counter target={3} suffix="x" />
+              </p>
+              <p className="mt-1 text-sm text-text-muted">More repetitions per session</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-bold text-navy">
+                <Counter target={100} suffix="%" />
+              </p>
+              <p className="mt-1 text-sm text-text-muted">Movement precision</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-bold text-navy">
+                <Counter target={40} suffix="%" />
+              </p>
+              <p className="mt-1 text-sm text-text-muted">Faster recovery reported</p>
+            </div>
           </div>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80"
-          alt="Robotic rehabilitation equipment"
-          className="w-full h-[320px] md:h-[400px] object-cover rounded-[var(--radius-lg)]"
-        />
       </section>
 
-      <section className="bg-bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center">
-            Why it makes a difference
-          </h2>
-          <div className="mt-12 grid sm:grid-cols-2 gap-6">
-            {benefits.map((item) => (
-              <div
-                key={item.title}
-                className="bg-white border border-border rounded-[var(--radius-lg)] p-6 md:p-8"
-              >
-                <div className="w-12 h-12 rounded-full bg-teal-light flex items-center justify-center">
-                  <item.icon size={22} className="text-teal-dark" />
-                </div>
-                <h3 className="mt-4 font-semibold text-navy text-lg">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  {item.text}
+      {/* What is robotic rehab */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <AnimateIn from="left">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-navy">
+                So what is robotic rehab, actually?
+              </h2>
+              <div className="mt-6 space-y-5">
+                <p className="text-text-secondary leading-relaxed">
+                  Think of it this way. Traditional physiotherapy relies on the
+                  therapist guiding your movement by hand. It works, but human
+                  hands have limits. They get tired, they cannot measure force
+                  precisely, and they cannot give you the exact same movement
+                  500 times in a row.
+                </p>
+                <p className="text-text-secondary leading-relaxed">
+                  Robotic rehabilitation uses computer-controlled devices to
+                  guide your body through therapeutic movements with a level of
+                  precision and consistency that manual therapy cannot match. The
+                  equipment tracks everything in real time and adjusts to how
+                  your body responds during each session.
+                </p>
+                <p className="text-text-secondary leading-relaxed">
+                  This is not replacing the therapist. Dr. Nileema is in the
+                  room, making the clinical decisions. The robot is a tool in
+                  her hands, the same way a surgeon uses advanced equipment.
+                  Better tools, better outcomes.
                 </p>
               </div>
+            </div>
+          </AnimateIn>
+          <AnimateIn from="right" delay={0.1}>
+            <img
+              src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80"
+              alt="Robotic rehabilitation equipment"
+              className="w-full h-[320px] md:h-[440px] object-cover rounded-[var(--radius-lg)]"
+            />
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="bg-bg-off">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+          <AnimateIn>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy text-center">
+              Why it makes a real difference
+            </h2>
+          </AnimateIn>
+          <div className="mt-12 grid sm:grid-cols-2 gap-6">
+            {benefits.map((item, i) => (
+              <AnimateIn key={item.title} delay={i * 0.1} from="up">
+                <div className="h-full bg-white border border-border rounded-[var(--radius-lg)] p-6 md:p-8 hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 rounded-2xl bg-teal-light flex items-center justify-center">
+                    <item.icon size={22} className="text-teal-dark" />
+                  </div>
+                  <h3 className="mt-4 font-semibold text-navy text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-text-secondary leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Comparison */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-navy text-center">
-          Traditional therapy vs. technology-assisted therapy
-        </h2>
-        <div className="mt-8 max-w-3xl mx-auto space-y-5">
-          <p className="text-text-secondary leading-relaxed">
-            Let us be clear: traditional physiotherapy is not outdated.
-            Manual therapy, therapeutic exercises, and clinical assessment
-            are the foundation of everything we do. The question is not
-            &ldquo;traditional or technology.&rdquo; It is &ldquo;why not
-            both?&rdquo;
+        <AnimateIn>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center">
+            What changes when you add technology
+          </h2>
+          <p className="mt-4 text-center text-text-muted max-w-xl mx-auto">
+            We are not saying traditional therapy is bad. We are saying: why
+            settle for one when you can have both?
           </p>
-          <p className="text-text-secondary leading-relaxed">
-            Traditional therapy relies on the therapist&apos;s skill and the
-            patient&apos;s effort. Technology-assisted therapy adds
-            precision, data, and consistency on top of that foundation. At
-            Smart Physio, your treatment plan will always include hands-on
-            care from Dr. Nileema. The technology is there to amplify what
-            skilled hands can do, not replace them.
-          </p>
-        </div>
+        </AnimateIn>
         <div className="mt-12 grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <div className="bg-bg-off border border-border rounded-[var(--radius-lg)] p-6">
-            <h3 className="font-semibold text-navy">Traditional therapy</h3>
-            <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-              <li>Hands-on manual therapy</li>
-              <li>Therapist-guided exercises</li>
-              <li>Clinical assessment and judgment</li>
-              <li>Personalized attention</li>
-            </ul>
-          </div>
-          <div className="bg-teal-light border border-teal/20 rounded-[var(--radius-lg)] p-6">
-            <h3 className="font-semibold text-navy">
-              Technology-assisted therapy
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-              <li>Precise, repeatable movement</li>
-              <li>Real-time data on progress</li>
-              <li>Adaptive resistance and range</li>
-              <li>Visible, measurable feedback</li>
-            </ul>
-          </div>
+          <AnimateIn from="left" delay={0.1}>
+            <div className="bg-bg-muted border border-border rounded-[var(--radius-lg)] p-6">
+              <h3 className="font-semibold text-navy">Traditional alone</h3>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Therapist-guided movement",
+                  "Progress assessed by feel",
+                  "Limited repetitions per session",
+                  "Hard to see week-over-week improvement",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-text-muted mt-1.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimateIn>
+          <AnimateIn from="right" delay={0.2}>
+            <div className="bg-teal-light border border-teal/20 rounded-[var(--radius-lg)] p-6">
+              <h3 className="font-semibold text-navy">
+                Traditional + robotic rehab
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Precise, repeatable movement",
+                  "Progress measured in real numbers",
+                  "3x more repetitions per session",
+                  "Visual feedback every session",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                    <CheckCircle2 size={14} className="text-teal-dark mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
-      <section className="bg-navy">
+      <section className="bg-gradient-to-br from-navy to-navy-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Want to see our equipment?
-          </h2>
-          <p className="mt-5 max-w-2xl mx-auto text-white/80 leading-relaxed">
-            Come visit our clinic in Balewadi and see the robotic
-            rehabilitation systems firsthand. Message us on WhatsApp and we
-            will set up a time for you.
-          </p>
-          <div className="mt-8">
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white font-medium rounded-[var(--radius)] hover:bg-teal-dark transition-colors"
-            >
-              <MessageCircle size={18} />
-              Message on WhatsApp
-            </a>
-          </div>
+          <AnimateIn>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Curious? Come see it yourself.
+            </h2>
+            <p className="mt-5 max-w-xl mx-auto text-white/70 leading-relaxed">
+              Most people have never seen robotic rehab equipment in person.
+              Message us and we will show you around the clinic. No obligation.
+            </p>
+            <div className="mt-8">
+              <a
+                href={getWhatsAppUrl("Hi, I would like to visit the clinic and see the robotic rehabilitation equipment.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-teal text-white font-semibold rounded-[var(--radius)] hover:bg-teal-dark transition-all hover:scale-[1.02] shadow-lg shadow-teal/20"
+              >
+                <MessageCircle size={18} />
+                Schedule a Visit
+              </a>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </div>
