@@ -42,6 +42,7 @@ const services = [
     color: "bg-teal-light text-teal-dark border-teal/20",
     desc: "This is what makes Smart Physio different. Our robotic systems provide precise, repeatable movement therapy that retrains muscles and nerves after injury or surgery. The technology adapts to your progress in real time. Especially effective for stroke recovery, spinal injuries, and complex orthopedic cases.",
     conditions: ["Stroke Recovery", "Spinal Injuries", "Complex Orthopedic Cases"],
+    image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1000&q=80",
     featured: true,
   },
   {
@@ -152,12 +153,47 @@ export default function ServicesPage() {
                         </span>
                       ))}
                     </div>
+                    {service.image && (
+                      <div className="relative mt-5 h-40 md:h-48 rounded-[var(--radius)] overflow-hidden">
+                        <Image
+                          src={service.image}
+                          alt={`${service.title} at Smart Physio`}
+                          fill
+                          sizes="(min-width: 768px) 700px, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </AnimateIn>
           ))}
         </div>
+      </section>
+
+      {/* Photo banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
+        <AnimateIn>
+          <div className="relative h-[260px] md:h-[380px] rounded-[var(--radius-lg)] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=80"
+              alt="Physiotherapy treatment session at Smart Physio"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+              <p className="text-teal font-medium text-sm uppercase tracking-wide">
+                Hands-on, backed by technology
+              </p>
+              <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white max-w-lg">
+                Every treatment plan pairs manual therapy with the equipment to back it up
+              </h3>
+            </div>
+          </div>
+        </AnimateIn>
       </section>
 
       <section className="bg-gradient-to-br from-teal to-teal-dark">
