@@ -210,6 +210,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Photo banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
+        <AnimateIn>
+          <div className="relative h-[260px] md:h-[380px] rounded-[var(--radius-lg)] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1666214280557-091f403e3e3b?w=1400&q=80"
+              alt="Physiotherapy exercise session at Smart Physio"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+              <p className="text-teal font-medium text-sm uppercase tracking-wide">
+                Real equipment, real progress
+              </p>
+              <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white max-w-lg">
+                You will see the numbers move, not just feel a little better
+              </h3>
+            </div>
+          </div>
+        </AnimateIn>
+      </section>
+
       {/* How it works */}
       <section className="bg-bg-off">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
@@ -278,6 +302,39 @@ export default function Home() {
               See detailed descriptions
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+        </AnimateIn>
+      </section>
+
+      {/* Photo banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
+        <AnimateIn>
+          <div className="relative h-[260px] md:h-[380px] rounded-[var(--radius-lg)] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80"
+              alt="Smart Physio rehabilitation zone"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex items-end justify-between gap-4 flex-wrap">
+              <div>
+                <p className="text-teal font-medium text-sm uppercase tracking-wide">
+                  Inside Smart Physio
+                </p>
+                <h3 className="mt-1 text-xl md:text-2xl font-semibold text-white">
+                  Every session tracked, every rep counted
+                </h3>
+              </div>
+              <Link
+                href="/gallery"
+                className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-teal transition-colors group shrink-0"
+              >
+                See the clinic
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </AnimateIn>
       </section>
