@@ -33,6 +33,12 @@
   --font-sans: var(--font-geist-sans);
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
