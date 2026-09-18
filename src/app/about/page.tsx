@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MessageCircle, CheckCircle2, Star } from "lucide-react";
 import { CLINIC, getWhatsAppUrl } from "@/lib/constants";
 import AnimateIn from "@/components/AnimateIn";
@@ -71,11 +72,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <AnimateIn from="left">
-              <div className="relative">
-                <img
+              <div className="relative h-[400px] md:h-[520px]">
+                <Image
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80"
                   alt="Dr. Nileema Chaudhary"
-                  className="w-full h-[400px] md:h-[520px] object-cover rounded-[var(--radius-lg)]"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover rounded-[var(--radius-lg)]"
                 />
                 <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white border border-border rounded-[var(--radius-lg)] p-4 shadow-lg">
                   <p className="text-sm font-semibold text-navy">
@@ -174,11 +177,15 @@ export default function AboutPage() {
             </div>
           </AnimateIn>
           <AnimateIn from="right" delay={0.1} className="order-1 md:order-2">
-            <img
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
-              alt="Smart Physio clinic facility"
-              className="w-full h-[320px] md:h-[400px] object-cover rounded-[var(--radius-lg)]"
-            />
+            <div className="relative h-[320px] md:h-[400px]">
+              <Image
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
+                alt="Smart Physio clinic facility"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover rounded-[var(--radius-lg)]"
+              />
+            </div>
           </AnimateIn>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Target, BarChart3, Clock, TrendingUp, MessageCircle, CheckCircle2 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import AnimateIn from "@/components/AnimateIn";
@@ -38,10 +39,13 @@ export default function TechnologyPage() {
     <div>
       <section className="relative overflow-hidden bg-navy">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&q=80"
             alt="Robotic rehabilitation"
-            className="w-full h-full object-cover opacity-15"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-15"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-28 text-center">
@@ -121,11 +125,15 @@ export default function TechnologyPage() {
             </div>
           </AnimateIn>
           <AnimateIn from="right" delay={0.1}>
-            <img
-              src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80"
-              alt="Robotic rehabilitation equipment"
-              className="w-full h-[320px] md:h-[440px] object-cover rounded-[var(--radius-lg)]"
-            />
+            <div className="relative h-[320px] md:h-[440px]">
+              <Image
+                src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80"
+                alt="Robotic rehabilitation equipment"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover rounded-[var(--radius-lg)]"
+              />
+            </div>
           </AnimateIn>
         </div>
       </section>

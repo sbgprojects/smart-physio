@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
 
@@ -67,11 +68,13 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group bg-white border border-border rounded-[var(--radius-lg)] overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col h-full"
               >
-                <div className="overflow-hidden">
-                  <img
+                <div className="relative h-48 overflow-hidden">
+                  <Image
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">

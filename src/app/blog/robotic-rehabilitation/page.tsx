@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, MessageCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import AnimateIn from "@/components/AnimateIn";
@@ -39,11 +40,15 @@ export default function RoboticRehabilitationPost() {
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
-          <img
-            src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&q=80"
-            alt="Robotic rehabilitation equipment"
-            className="mt-8 w-full h-64 md:h-96 object-cover rounded-[var(--radius-lg)]"
-          />
+          <div className="relative mt-8 h-64 md:h-96">
+            <Image
+              src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&q=80"
+              alt="Robotic rehabilitation equipment"
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover rounded-[var(--radius-lg)]"
+            />
+          </div>
         </AnimateIn>
 
         <AnimateIn delay={0.2}>

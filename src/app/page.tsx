@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Cpu,
   Stethoscope,
@@ -106,10 +107,13 @@ export default function Home() {
       <section className="relative overflow-hidden bg-navy">
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-90" />
         <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80"
             alt="Physiotherapy treatment session"
-            className="w-full h-full object-cover opacity-30"
+            fill
+            priority
+            sizes="50vw"
+            className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />
         </div>
@@ -283,11 +287,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <AnimateIn from="left">
-              <div className="relative">
-                <img
+              <div className="relative h-[360px] md:h-[480px]">
+                <Image
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80"
                   alt="Dr. Nileema Chaudhary"
-                  className="w-full h-[360px] md:h-[480px] object-cover rounded-[var(--radius-lg)]"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover rounded-[var(--radius-lg)]"
                 />
                 <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white border border-border rounded-[var(--radius-lg)] p-4 shadow-lg">
                   <div className="flex gap-0.5">
@@ -339,10 +345,12 @@ export default function Home() {
       {/* Technology teaser */}
       <section className="relative overflow-hidden bg-navy">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&q=80"
             alt="Robotic rehabilitation"
-            className="w-full h-full object-cover opacity-15"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-15"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">

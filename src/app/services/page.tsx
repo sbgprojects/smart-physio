@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Bone,
   Brain,
@@ -83,8 +84,18 @@ const services = [
 export default function ServicesPage() {
   return (
     <div>
-      <section className="bg-navy">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
+      <section className="relative overflow-hidden bg-navy">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80"
+            alt="Smart Physio clinic"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-15"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
           <AnimateIn>
             <p className="text-teal font-medium text-sm uppercase tracking-wide">
               Services
